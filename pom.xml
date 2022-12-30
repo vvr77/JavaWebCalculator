@@ -20,6 +20,11 @@
     <artifactId>servlet-api</artifactId>
     <version>2.5</version>
 </dependency>
+   <dependency>
+<groupId>org.sonarsource.scanner.maven</groupId>
+<artifactId>sonar-maven-plugin</artifactId>
+<version>3.2</version>
+</dependency>
 </dependencies>
 <distributionManagement>
   <repository>
@@ -28,4 +33,18 @@
     <url>http://binary.ibm.com/nexus/content/repositories/releases</url>
   </repository>
 </distributionManagement>
+  <profiles>
+<profile>
+<id>sonar</id>
+<activation>
+<activeByDefault>true</activeByDefault>
+</activation>
+<properties>
+<!-- optional URL to server. Default value is http://localhost:9000 -->
+<sonar.host.url>
+http://13.115.252.130:9000
+</sonar.host.url>
+</properties>
+</profile>
+</profiles>
 </project>
